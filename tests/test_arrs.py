@@ -1,9 +1,15 @@
-from utils import arrs
+import pytest as pytest
 
+from utils import arrs
+import pytest
 
 def test_get():
-    assert arrs.get([1, 2, 3], 1, "test") == 3
-    assert arrs.get([], 0, "test") == "test"
+    assert arrs.get([1, 2, 3], 2, "test") == 3
+
+
+def test_get_error():
+    with pytest.raises(IndexError):
+        assert arrs.get([], 0, "test") == "test"
 
 
 def test_slice():
